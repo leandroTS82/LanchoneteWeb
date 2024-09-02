@@ -20,58 +20,10 @@
         
         <!-- Formulário de Produtos -->
         <div id="produtos-form" class="mt-4" style="display: none;">
-            <h5>Olá, <span id="nome-usuario"></span>! Selecione seus produtos:</h5>
-            <div class="form-row mb-2" id="produto1">
-                <div class="col-4">Produto 1</div>
-                <div class="col-2">R$ 10,00</div>
-                <div class="col-4">
-                    <button class="btn btn-secondary btn-sm diminuir">-</button>
-                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                    <button class="btn btn-secondary btn-sm aumentar">+</button>
-                </div>
-                <div class="col-2 total-produto">R$ 0,00</div>
-            </div>
-            <!-- Repetir o bloco acima para os 4 produtos adicionais -->
-            <div class="form-row mb-2" id="produto2">
-                <div class="col-4">Produto 2</div>
-                <div class="col-2">R$ 12,00</div>
-                <div class="col-4">
-                    <button class="btn btn-secondary btn-sm diminuir">-</button>
-                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                    <button class="btn btn-secondary btn-sm aumentar">+</button>
-                </div>
-                <div class="col-2 total-produto">R$ 0,00</div>
-            </div>
-            <div class="form-row mb-2" id="produto3">
-                <div class="col-4">Produto 3</div>
-                <div class="col-2">R$ 15,00</div>
-                <div class="col-4">
-                    <button class="btn btn-secondary btn-sm diminuir">-</button>
-                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                    <button class="btn btn-secondary btn-sm aumentar">+</button>
-                </div>
-                <div class="col-2 total-produto">R$ 0,00</div>
-            </div>
-            <div class="form-row mb-2" id="produto4">
-                <div class="col-4">Produto 4</div>
-                <div class="col-2">R$ 8,00</div>
-                <div class="col-4">
-                    <button class="btn btn-secondary btn-sm diminuir">-</button>
-                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                    <button class="btn btn-secondary btn-sm aumentar">+</button>
-                </div>
-                <div class="col-2 total-produto">R$ 0,00</div>
-            </div>
-            <div class="form-row mb-2" id="produto5">
-                <div class="col-4">Produto 5</div>
-                <div class="col-2">R$ 20,00</div>
-                <div class="col-4">
-                    <button class="btn btn-secondary btn-sm diminuir">-</button>
-                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
-                    <button class="btn btn-secondary btn-sm aumentar">+</button>
-                </div>
-                <div class="col-2 total-produto">R$ 0,00</div>
-            </div>
+            <h3>Olá, <span id="nome-usuario"></span>!</h3>
+            <h5>Selecione seus produtos:</h5>
+            <!-- Produtos serão inseridos aqui dinamicamente -->
+            <div id="lista-produtos"></div>
             
             <!-- Total -->
             <div class="form-row">
