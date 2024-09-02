@@ -11,12 +11,13 @@ $(document).ready(function () {
     let produtosHtml = '';
     produtos.forEach(function (produto) {
         produtosHtml += `<div data-idproduto="${produto.ID}" class="form-row mb-2" id="produto${produto.ID}">
-        <div class="col-4">${produto.NomeProduto}</div>
+        <div class="col-3">${produto.NomeProduto}</div>
         <div class="col-2">R$ ${produto.ValorUnitario.toFixed(2).replace('.', ',')}</div>
-        <div class="col-4">
+        <div class="col-5">
             <button class="btn btn-secondary btn-sm diminuir"${produto.QuantidadeEstoque === 0 ? ' disabled' : ''}>-</button>
             <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;" ${produto.QuantidadeEstoque === 0 ? ' disabled' : ''}>
             <button class="btn btn-secondary btn-sm aumentar"${produto.QuantidadeEstoque === 0 ? ' disabled' : ''}>+</button>
+            <small class="estoque-disponivel" style="margin-left: 10px;">Estoque: ${produto.QuantidadeEstoque}</small>
         </div>
         <div class="col-2 total-produto">R$ 0,00</div>
     </div>`;
@@ -30,16 +31,28 @@ $(document).ready(function () {
     function setProductEvents() {
         $('#lista-produtos').on('click', '.aumentar', function () {
             var quantidadeInput = $(this).siblings('.quantidade');
+            var estoqueLabel = $(this).siblings('.estoque-disponivel');
+            var estoqueAtual = parseInt(estoqueLabel.text().replace('Estoque: ', ''));
             var quantidadeAtual = parseInt(quantidadeInput.val());
-            quantidadeInput.val(quantidadeAtual + 1);
-            atualizarTotal($(this).closest('.form-row'));
+
+            // Verifica se há estoque disponível
+            if (estoqueAtual > 0) {
+                quantidadeInput.val(quantidadeAtual + 1);
+                estoqueLabel.text('Estoque: ' + (estoqueAtual - 1));
+                atualizarTotal($(this).closest('.form-row'));
+            }
         });
 
         $('#lista-produtos').on('click', '.diminuir', function () {
             var quantidadeInput = $(this).siblings('.quantidade');
+            var estoqueLabel = $(this).siblings('.estoque-disponivel');
+            var estoqueAtual = parseInt(estoqueLabel.text().replace('Estoque: ', ''));
             var quantidadeAtual = parseInt(quantidadeInput.val());
+            
+            // Verifica se a quantidade atual é maior que 0 para permitir decremento
             if (quantidadeAtual > 0) {
                 quantidadeInput.val(quantidadeAtual - 1);
+                estoqueLabel.text('Estoque: ' + (estoqueAtual + 1));
                 atualizarTotal($(this).closest('.form-row'));
             }
         });
@@ -88,7 +101,8 @@ $(document).ready(function () {
     });
 
     // Função para o botão "Enviar" do formulário de contato
-    $('#enviar-contato').click(function () {
-        alert('Contato enviado! Confirme seu pedido no caixa.');
+    $('#enviar-pedido').click(function () {
+        alert('Pedido enviado! Confirme seu pedido no caixa.');
     });
 });
+s
