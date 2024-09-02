@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Lanchonete</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Formulário de Nome -->
+        <div id="nome-form">
+            <div class="form-group">
+                <label for="nome">Insira o seu nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+            </div>
+            <button class="btn btn-primary" id="continuar-nome">Continuar</button>
+        </div>
+        
+        <!-- Formulário de Produtos -->
+        <div id="produtos-form" class="mt-4" style="display: none;">
+            <h5>Olá, <span id="nome-usuario"></span>! Selecione seus produtos:</h5>
+            <div class="form-row mb-2" id="produto1">
+                <div class="col-4">Produto 1</div>
+                <div class="col-2">R$ 10,00</div>
+                <div class="col-4">
+                    <button class="btn btn-secondary btn-sm diminuir">-</button>
+                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
+                    <button class="btn btn-secondary btn-sm aumentar">+</button>
+                </div>
+                <div class="col-2 total-produto">R$ 0,00</div>
+            </div>
+            <!-- Repetir o bloco acima para os 4 produtos adicionais -->
+            <div class="form-row mb-2" id="produto2">
+                <div class="col-4">Produto 2</div>
+                <div class="col-2">R$ 12,00</div>
+                <div class="col-4">
+                    <button class="btn btn-secondary btn-sm diminuir">-</button>
+                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
+                    <button class="btn btn-secondary btn-sm aumentar">+</button>
+                </div>
+                <div class="col-2 total-produto">R$ 0,00</div>
+            </div>
+            <div class="form-row mb-2" id="produto3">
+                <div class="col-4">Produto 3</div>
+                <div class="col-2">R$ 15,00</div>
+                <div class="col-4">
+                    <button class="btn btn-secondary btn-sm diminuir">-</button>
+                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
+                    <button class="btn btn-secondary btn-sm aumentar">+</button>
+                </div>
+                <div class="col-2 total-produto">R$ 0,00</div>
+            </div>
+            <div class="form-row mb-2" id="produto4">
+                <div class="col-4">Produto 4</div>
+                <div class="col-2">R$ 8,00</div>
+                <div class="col-4">
+                    <button class="btn btn-secondary btn-sm diminuir">-</button>
+                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
+                    <button class="btn btn-secondary btn-sm aumentar">+</button>
+                </div>
+                <div class="col-2 total-produto">R$ 0,00</div>
+            </div>
+            <div class="form-row mb-2" id="produto5">
+                <div class="col-4">Produto 5</div>
+                <div class="col-2">R$ 20,00</div>
+                <div class="col-4">
+                    <button class="btn btn-secondary btn-sm diminuir">-</button>
+                    <input type="number" class="quantidade" value="0" min="0" readonly style="width: 50px; text-align: center;">
+                    <button class="btn btn-secondary btn-sm aumentar">+</button>
+                </div>
+                <div class="col-2 total-produto">R$ 0,00</div>
+            </div>
+            
+            <!-- Total -->
+            <div class="form-row">
+                <div class="col-8 text-right"><strong>Total:</strong></div>
+                <div class="col-4" id="total-geral">R$ 0,00</div>
+            </div>
+            <button class="btn btn-primary mt-3" id="continuar-pagamento">Continuar</button>
+        </div>
+        
+        <!-- Formulário de Pagamento -->
+        <div id="pagamento-form" class="mt-4" style="display: none;">
+            <h5>Escolha a forma de pagamento:</h5>
+            <button class="btn btn-success mb-2" id="pagamento-pix">PIX</button>
+            <button class="btn btn-secondary mb-2" id="pagamento-depois">Pagar Depois</button>
+            
+            <!-- Informações de PIX -->
+            <div id="info-pix" style="display: none;">
+                <p>Pedido enviado! Use a chave PIX: <strong>000.111.222-33</strong> e mostre o comprovante no caixa.</p>
+            </div>
+            
+            <!-- Formulário de Contato -->
+            <div id="contato-form" style="display: none;">
+                <label for="contato">Insira seu contato WhatsApp:</label>
+                <input type="text" class="form-control" id="contato" placeholder="(00) 00000-0000">
+                <button class="btn btn-primary mt-2" id="enviar-contato">Enviar</button>
+                <p class="mt-2">Confirme seu pedido no caixa.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery e Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Arquivo de script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
